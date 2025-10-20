@@ -13,6 +13,7 @@ html {
 body {
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 }
 
 .amu {
@@ -20,38 +21,31 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 50vw;
-  letter-spacing: 2vw;
-  line-height: 1vw;
+  /* 반응형 크기: 최소 24px, 뷰포트 기반 크기, 최대 96px */
+  font-size: clamp(24px, 8vw, 96px);
+  letter-spacing: 0.2vw;
+  line-height: 1;
+  white-space: nowrap; /* 한 줄 고정 */
+  text-align: center;
+  font-weight: 800; /* 더 굵게 */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* 기본에 블러 적용, 마우스 오버 시 선명하게 */
+  filter: blur(20px);
+  transition: filter 0.25s ease, text-shadow 0.25s ease;
+  cursor: default;
 }
 
-.filter {
-  width: 100%;
-  height: 100%;
-}
-
-.filter:hover {
+.amu:hover {
+  filter: blur(0);
   cursor: pointer;
-  -webkit-filter: blur(0px);
-  -moz-filter: blur(0px);
-  -ms-filter: blur(0px);
-  -o-filter: blur(0px);
-  filter: blur(0px);
-}
-
-.filter {
-  cursor: pointer;
-  -webkit-filter: blur(60px);
-  -moz-filter: blur(60px);
-  -ms-filter: blur(60px);
-  -o-filter: blur(60px);
-  filter: blur(60px);
 }
 
 @media screen and (max-width: 1000px) {
   .amu {
-    word-break: break-all;
-    font-size: 80vw;
-    line-height: 80vw;
+    /* 작은 화면에서는 글자 크기만 줄임, 줄바꿈 금지 유지 */
+    font-size: clamp(18px, 10vw, 56px);
+    letter-spacing: 0;
   }
 }
