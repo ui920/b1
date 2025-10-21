@@ -16,18 +16,24 @@ body {
   min-height: 100vh;
 }
 
+.filter {
+  position: relative;
+  width: 102%;
+  height: 110vh; /* .amu가 이 부모를 기준으로 중앙에 위치하게 됨 */
+}
+
 .amu {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* 반응형 크기: 최소 24px, 뷰포트 기반 크기, 최대 96px */
-  font-size: clamp(24px, 8vw, 96px);
+  font-size: 45vw;
   letter-spacing: 0.2vw;
   line-height: 1;
   white-space: nowrap; /* 한 줄 고정 */
   text-align: center;
-  font-weight: 800; /* 더 굵게 */
+  font-weight: 700; /* 더 굵게 */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
